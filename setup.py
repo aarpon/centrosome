@@ -128,7 +128,7 @@ setuptools.setup(
     ],
     keywords="",
     license="BSD",
-    long_description="",
+    long_description="This version is forked by Aaron Ponti @ ETH Zurich to add support for newer versions of Python and dependencies.",
     name="centrosome",
     packages=["centrosome"],
     setup_requires=["cython", "numpy", "pytest",],
