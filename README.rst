@@ -1,4 +1,4 @@
 centrosome
 ==========
 
-Forked from https://github.com/CellProfiler/centrosome add support for newer versions of Python and dependencies.
+Forked from https://github.com/CellProfiler/centrosome to add support for newer versions of Python and some of the dependencies.
