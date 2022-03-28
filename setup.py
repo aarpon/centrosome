@@ -118,7 +118,7 @@ setuptools.setup(
     },
     install_requires=[
         "deprecation",
-        "matplotlib==3.1.3",
+        "matplotlib",
         "numpy>=1.18.2",
         "pillow>=7.1.0",
         "scikit-image>=0.17.2",
