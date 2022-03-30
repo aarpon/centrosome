@@ -99,7 +99,6 @@ setuptools.setup(
         "Programming Language :: C",
         "Programming Language :: C++",
         "Programming Language :: Cython",
-        "Programming Language :: Python :: 2",
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
@@ -116,11 +115,11 @@ setuptools.setup(
         "test": ["pytest==5.2.2"],
     },
     install_requires=[
-        "deprecation",
-        "matplotlib",
+        "deprecation>=2.1",
+        "matplotlib>=3.5",
         "numpy>=1.18.2",
         "pillow>=7.1.0",
-        "scikit-image>=0.17.2",
+        "scikit-image>=0.19",
         "scipy>=1.4.1",
     ],
     tests_require=[
@@ -133,5 +132,5 @@ setuptools.setup(
     packages=["centrosome"],
     setup_requires=["cython", "numpy", "pytest",],
     url="https://github.com/CellProfiler/centrosome",
-    version="1.2.0",
+    version="1.2.1",
 )
