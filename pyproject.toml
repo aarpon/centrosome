@@ -18,13 +18,13 @@ target_version = ['py39']
 
 [tool.poetry]
 name = "centrosome"
-version = "1.2.2"
+version = "1.2.1"
 description = "Forked from https://github.com/CellProfiler/centrosome to add support for newer versions of Python and some of the dependencies."
 authors = ["Aaron Ponti <aaron.ponti@bsse.ethz.ch>"]
 license = "BSD 3-Clause"
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.9"
 deprecation = "^2.1.0"
 matplotlib = "^3.5.2"
 Cython = "^0.29.30"
