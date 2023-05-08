@@ -12,3 +12,4 @@ centrosome.egg-info/
 dist
 pip-wheel-metadata/
 venv
+/release/
