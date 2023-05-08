@@ -48,7 +48,7 @@ mv dist/*.whl release/
 
 # Remove the conda environment
 conda deactivate
-conda env remove -n pyminflux-build
+conda env remove -n centrosome-build
 
 #
 # Python 3.10
@@ -73,7 +73,7 @@ mv dist/*.whl release/
 
 # Remove the conda environment
 conda deactivate
-conda env remove -n pyminflux-build
+conda env remove -n centrosome-build
 
 #
 # Python 3.11
@@ -100,4 +100,4 @@ mv dist/*.whl release/
 
 # Remove the conda environment
 conda deactivate
-conda env remove -n pyminflux-build
+conda env remove -n centrosome-build
