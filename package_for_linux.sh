@@ -33,8 +33,8 @@ source $ANACONDA_HOME/etc/profile.d/conda.sh
 conda create -n centrosome-build python=3.9 -y
 conda activate centrosome-build
 
-# Install Cython
-pip install cython
+# Install dependencies
+poetry install
 
 # Delete build and dist folders
 rm -fR build
@@ -58,8 +58,8 @@ conda env remove -n centrosome-build
 conda create -n centrosome-build python=3.10 -y
 conda activate centrosome-build
 
-# Install Cython
-pip install cython
+# Install dependencies
+poetry install
 
 # Delete build and dist folders
 rm -fR build
@@ -83,8 +83,8 @@ conda env remove -n centrosome-build
 conda create -n centrosome-build python=3.11 -y
 conda activate centrosome-build
 
-# Install Cython
-pip install cython
+# Install dependencies
+poetry install
 
 # Delete build and dist folders
 rm -fR build
