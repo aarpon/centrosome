@@ -25,79 +25,33 @@ fi
 # Source conda.sh
 source $ANACONDA_HOME/etc/profile.d/conda.sh
 
-#
-# Python 3.9
-#
+# Array of Python versions
+versions=("3.9" "3.10" "3.11" "3.12")
 
-# Create and activate a dedicated python 3.9 env
-conda create -n centrosome-build python=3.9 -y
-conda activate centrosome-build
+# Loop over each Python version
+for version in "${versions[@]}"; do
+    echo "Building centrosome for Python $version"
 
-# Install dependencies
-poetry install
+    # Create and activate a dedicated python environment
+    conda create -n centrosome-build python=$version -y
+    conda activate centrosome-build
 
-# Delete build and dist folders
-rm -fR build
-rm -fR dist
+    # Install dependencies using Poetry
+    poetry install
 
-# Build the binary package
-python setup.py bdist_wheel
+    # Delete build and dist folders to ensure clean build
+    rm -fR build
+    rm -fR dist
 
-# Move it to release
-mv dist/*.whl release/
+    # Build the source and binary packages
+    python setup.py sdist
+    python setup.py bdist_wheel
 
-# Remove the conda environment
-conda deactivate
-conda env remove -n centrosome-build
+    # Move them to the release directory
+    mv dist/*.tar.gz release/
+    mv dist/*.whl release/
 
-#
-# Python 3.10
-#
-
-# Create and activate a dedicated python 3.10 env
-conda create -n centrosome-build python=3.10 -y
-conda activate centrosome-build
-
-# Install dependencies
-poetry install
-
-# Delete build and dist folders
-rm -fR build
-rm -fR dist
-
-# Build the binary package
-python setup.py bdist_wheel
-
-# Move it to release
-mv dist/*.whl release/
-
-# Remove the conda environment
-conda deactivate
-conda env remove -n centrosome-build
-
-#
-# Python 3.11
-#
-
-# Create and activate a dedicated python 3.11 env
-conda create -n centrosome-build python=3.11 -y
-conda activate centrosome-build
-
-# Install dependencies
-poetry install
-
-# Delete build and dist folders
-rm -fR build
-rm -fR dist
-
-# Build the source and binary packages
-python setup.py sdist
-python setup.py bdist_wheel
-
-# Move them to release
-mv dist/*.tar.gz release/
-mv dist/*.whl release/
-
-# Remove the conda environment
-conda deactivate
-conda env remove -n centrosome-build
+    # Remove the conda environment
+    conda deactivate
+    conda env remove -n centrosome-build -y
+done
