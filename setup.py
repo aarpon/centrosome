@@ -127,8 +127,6 @@ setuptools.setup(
         "pillow>=7.1.0",
         "scikit-image>=0.19.3",
         "scipy>=1.8.1",
-        "cython>=3.0",
-        "wheel>=0.43.0"
     ],
     tests_require=[
         "pytest",
@@ -138,7 +136,7 @@ setuptools.setup(
     long_description="This version is forked by Aaron Ponti @ ETH Zurich to add support for newer versions of Python and dependencies.",
     name="centrosome",
     packages=["centrosome"],
-    setup_requires=["cython", "numpy", "pytest",],
+    setup_requires=["cython", "numpy", "pytest", "wheel",],
     url="https://github.com/CellProfiler/centrosome",
     version="1.2.3",
 )
