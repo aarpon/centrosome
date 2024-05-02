@@ -36,8 +36,8 @@ for version in "${versions[@]}"; do
     conda create -n centrosome-build python=$version -y
     conda activate centrosome-build
 
-    # Install dependencies using Poetry
-    poetry install
+    # Install dependencies
+    python -m pip install .
 
     # Delete build and dist folders to ensure clean build
     rm -fR build

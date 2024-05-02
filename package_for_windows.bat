@@ -16,7 +16,7 @@ FOR %%V IN (3.9, 3.10, 3.11, 3.12) DO (
     call conda activate centrosome-build
 
     REM Install dependencies
-    call poetry install
+    call python -m pip install .
 
     REM Delete build and dist folders
     IF EXIST build rmdir /s /q build

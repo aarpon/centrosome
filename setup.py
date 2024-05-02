@@ -130,6 +130,7 @@ setuptools.setup(
         "test": ["pytest==5.2.2"],
     },
     install_requires=[
+        "numpy>=1.25",
         "deprecation>=2.1",
         "matplotlib>=3.5.3",
         "numpy>=1.18.2",
