@@ -57,7 +57,10 @@ class Test(setuptools.command.test.test):
 
 if __cython:
     __suffix = "pyx"
-    __extkwargs = {"language": "c++"}
+    __extkwargs = {
+        "language": "c++",
+        "define_macros": [("NPY_NO_DEPRECATED_API", "NPY_1_7_API_VERSION")]
+    }
 else:
     __suffix = "cpp"
     __extkwargs = {}
@@ -68,6 +71,7 @@ __extensions = [
         sources=[
             "centrosome/_propagate.{}".format("c" if __suffix == "cpp" else __suffix)
         ],
+        define_macros=[("NPY_NO_DEPRECATED_API", "NPY_1_7_API_VERSION")] if __suffix == "pyx" else None,
     )
 ]
 
@@ -101,8 +105,9 @@ setuptools.setup(
         "Programming Language :: Cython",
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.9",
-        "Programming Language :: Python :: 3.10"
-        "Programming Language :: Python :: 3.11"
+        "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: 3.11",
+        "Programming Language :: Python :: 3.12",
         "Topic :: Scientific/Engineering :: Bio-Informatics",
         "Topic :: Scientific/Engineering",
     ],

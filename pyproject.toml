@@ -19,18 +19,36 @@ target_version = ['py39']
 [tool.poetry]
 name = "centrosome"
 version = "1.2.2"
-description = "Forked from https://github.com/CellProfiler/centrosome to add support for newer versions of Python and some of the dependencies."
-authors = ["Aaron Ponti <aaron.ponti@bsse.ethz.ch>"]
+description="An open source image processing library (forked from https://github.com/CellProfiler/centrosome to add support for newer versions of Python and some of the dependencies)"
+classifiers=[
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: BSD License",
+    "Operating System :: OS Independent",
+    "Programming Language :: C",
+    "Programming Language :: C++",
+    "Programming Language :: Cython",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+    "Topic :: Scientific/Engineering",
+]
+authors = ["Nodar Gogoberidze <ngogober@broadinstitute.org>", "Aaron Ponti <aaron.ponti@bsse.ethz.ch>"]
 license = "BSD 3-Clause"
 
 [tool.poetry.dependencies]
 python = ">=3.9"
 deprecation = ">=2.1.0"
 matplotlib = "!=3.5.2,>=3.5.1"
-Cython = "<3.0"
+Cython = ">=3.0"
 Pillow = ">=9.1.1"
 scikit-image = ">=0.19.3"
 scipy = ">=1.8.1"
+wheel = ">=0.43.0"
+setuptools = ">=69.5.1"
 
 [tool.poetry.dev-dependencies]
 black = ">=22.6.0"

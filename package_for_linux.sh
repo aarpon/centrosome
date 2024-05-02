@@ -48,7 +48,7 @@ mv dist/*.whl release/
 
 # Remove the conda environment
 conda deactivate
-conda env remove -n centrosome-build
+conda env remove -n centrosome-build -y
 
 #
 # Python 3.10
@@ -73,7 +73,7 @@ mv dist/*.whl release/
 
 # Remove the conda environment
 conda deactivate
-conda env remove -n centrosome-build
+conda env remove -n centrosome-build -y
 
 #
 # Python 3.11
@@ -100,4 +100,32 @@ mv dist/*.whl release/
 
 # Remove the conda environment
 conda deactivate
-conda env remove -n centrosome-build
+conda env remove -n centrosome-build -y
+
+#
+# Python 3.12
+#
+
+# Create and activate a dedicated python 3.12 env
+conda create -n centrosome-build python=3.12 -y
+conda activate centrosome-build
+
+# Install dependencies
+poetry install
+
+# Delete build and dist folders
+rm -fR build
+rm -fR dist
+
+# Build the source and binary packages
+python setup.py sdist
+python setup.py bdist_wheel
+
+# Move them to release
+mv dist/*.tar.gz release/
+mv dist/*.whl release/
+
+# Remove the conda environment
+conda deactivate
+conda env remove -n centrosome-build -y
+
