@@ -3,12 +3,13 @@ import glob
 import os.path
 import sys
 
-import pkg_resources
+import numpy as np
 import setuptools
 import setuptools.command.build_ext
 import setuptools.command.test
 
 try:
+    import Cython
     import Cython.Build
 
     __cython = True
@@ -18,7 +19,7 @@ except ImportError:
 
 class BuildExtension(setuptools.command.build_ext.build_ext):
     def build_extensions(self):
-        numpy_includes = pkg_resources.resource_filename("numpy", "core/include")
+        numpy_includes = np.get_include()
 
         for extension in self.extensions:
             if (
@@ -59,6 +60,7 @@ if __cython:
     __suffix = "pyx"
     __extkwargs = {
         "language": "c++",
+        "language_level": 3,
         "define_macros": [("NPY_NO_DEPRECATED_API", "NPY_1_7_API_VERSION")]
     }
 else:
@@ -120,11 +122,13 @@ setuptools.setup(
     },
     install_requires=[
         "deprecation>=2.1",
-        "matplotlib>=3.5",
+        "matplotlib>=3.5.3",
         "numpy>=1.18.2",
         "pillow>=7.1.0",
-        "scikit-image>=0.19",
-        "scipy>=1.4.1",
+        "scikit-image>=0.19.3",
+        "scipy>=1.8.1",
+        "cython>=3.0",
+        "wheel>=0.43.0"
     ],
     tests_require=[
         "pytest",
@@ -136,5 +140,5 @@ setuptools.setup(
     packages=["centrosome"],
     setup_requires=["cython", "numpy", "pytest",],
     url="https://github.com/CellProfiler/centrosome",
-    version="1.2.2",
+    version="1.2.3",
 )

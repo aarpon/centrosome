@@ -18,7 +18,7 @@ target_version = ['py39']
 
 [tool.poetry]
 name = "centrosome"
-version = "1.2.2"
+version = "1.2.3"
 description="An open source image processing library (forked from https://github.com/CellProfiler/centrosome to add support for newer versions of Python and some of the dependencies)"
 classifiers=[
     "Development Status :: 5 - Production/Stable",
