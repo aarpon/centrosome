@@ -60,12 +60,19 @@ if __cython:
     __suffix = "pyx"
     __extkwargs = {
         "language": "c++",
-        "language_level": 3,
         "define_macros": [("NPY_NO_DEPRECATED_API", "NPY_1_7_API_VERSION")]
     }
 else:
     __suffix = "cpp"
     __extkwargs = {}
+
+# Determine the compiler flags based on the operating system
+if sys.platform.startswith('win'):
+    # Windows specific flags for MSVC
+    extra_compile_args = ['/wd4267']
+else:
+    # Linux/Unix/MacOS, using GCC or Clang
+    extra_compile_args = ['-Wno-error=int-conversion']
 
 __extensions = [
     setuptools.Extension(
@@ -74,6 +81,7 @@ __extensions = [
             "centrosome/_propagate.{}".format("c" if __suffix == "cpp" else __suffix)
         ],
         define_macros=[("NPY_NO_DEPRECATED_API", "NPY_1_7_API_VERSION")] if __suffix == "pyx" else None,
+        extra_compile_args=extra_compile_args,
     )
 ]
 
@@ -87,12 +95,13 @@ for pyxfile in glob.glob(os.path.join("centrosome", "*.pyx")):
         setuptools.Extension(
             name="centrosome.{}".format(name),
             sources=["centrosome/{}.{}".format(name, __suffix)],
-            **__extkwargs
+            **__extkwargs,
+            extra_compile_args=extra_compile_args,
         )
     ]
 
 if __suffix == "pyx":
-    __extensions = Cython.Build.cythonize(__extensions)
+    __extensions = Cython.Build.cythonize(__extensions, language_level="3")
 
 setuptools.setup(
     author="Nodar Gogoberidze",
