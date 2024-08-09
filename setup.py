@@ -130,13 +130,12 @@ setuptools.setup(
         "test": ["pytest==5.2.2"],
     },
     install_requires=[
-        "numpy>=1.25",
         "deprecation>=2.1",
-        "matplotlib>=3.5.3",
-        "numpy>=1.18.2",
-        "pillow>=7.1.0",
-        "scikit-image>=0.19.3",
-        "scipy>=1.8.1",
+        "matplotlib>=3.9.1.post1",
+        "numpy<=2.00",
+        "pillow>=10.4.0",
+        "scikit-image>=0.24.0",
+        "scipy>1.14.0",
     ],
     tests_require=[
         "pytest",

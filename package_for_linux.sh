@@ -26,7 +26,7 @@ fi
 source $ANACONDA_HOME/etc/profile.d/conda.sh
 
 # Array of Python versions
-versions=("3.9" "3.10" "3.11" "3.12")
+versions=("3.10" "3.11" "3.12")
 
 # Loop over each Python version
 for version in "${versions[@]}"; do
