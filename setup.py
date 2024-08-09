@@ -126,8 +126,8 @@ setuptools.setup(
     description="An open source image processing library",
     ext_modules=__extensions,
     extras_require={
-        "dev": ["black==19.10b0", "pre-commit==1.20.0"],
-        "test": ["pytest==5.2.2"],
+        "dev": ["black>=22.3.0", "pre-commit>=3.6.0"],
+        "test": ["pytest>=8.0.0"],
     },
     install_requires=[
         "deprecation>=2.1",

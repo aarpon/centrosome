@@ -8,7 +8,7 @@ rmdir /s /q release
 mkdir release
 
 REM Loop through the Python versions using a for loop
-FOR %%V IN (3.9, 3.10, 3.11, 3.12) DO (
+FOR %%V IN (3.10, 3.11, 3.12) DO (
     ECHO Building centrosome for Python %%V
 
     REM Create and activate a dedicated Python environment
