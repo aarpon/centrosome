@@ -18,7 +18,7 @@ To test the installation, run:
 
 ```sh
 $ python -c "import centrosome; print(centrosome.__version__)"
-1.2.3
+1.3.0
 ```
 
 To build a source distribution and a wheel package from the [source code](https://github.com/aarpon/centrosome):

@@ -131,7 +131,7 @@ setuptools.setup(
     },
     install_requires=[
         "deprecation>=2.1",
-        "matplotlib>=3.9.1.post1",
+        "matplotlib>=3.9.2",
         "numpy<=2.00",
         "pillow>=10.4.0",
         "scikit-image>=0.24.0",
@@ -147,5 +147,5 @@ setuptools.setup(
     packages=["centrosome"],
     setup_requires=["cython", "numpy", "pytest", "wheel",],
     url="https://github.com/CellProfiler/centrosome",
-    version="1.2.3",
+    version="1.3.0",
 )
